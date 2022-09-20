@@ -3,16 +3,20 @@ const schema = new mongoose.Schema({
     fullName: {
         type: String,
         required: true
-    }, username: {
+    },
+    username: {
         type: String,
         required: true,
         unique: true,
         minlength: 2
-    }, password: {
+    },
+    password: {
         type: String,
         required: true,
         minlength: 4
     }
+}, {
+    versionKey: false
 });
 const User = mongoose.model('User', schema);
 
