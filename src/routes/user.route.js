@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router()
 const userService = require('../services/user.service');
+const authGuardMiddleware = require('../middlewares/auth-guard.middleware');
 
-router.get('/', async (req, res) => {
+router.get('/', authGuardMiddleware, async (req, res) => {
     const response = await userService.getAllUser();
     res.json(response);
 })

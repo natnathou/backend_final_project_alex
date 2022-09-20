@@ -1,6 +1,10 @@
+require('dotenv').config()
+
 const express = require('express');
 const app = express();
+
 const userRoute = require('./routes/user.route');
+const authRoute = require('./routes/auth.route');
 
 const handleErrorMiddleware = require('./middlewares/errorHandler.middleware');
 
@@ -14,6 +18,7 @@ app.use(express.urlencoded({
 }));
 
 app.use('/user', userRoute);
+app.use('/auth', authRoute);
 
 app.get('/', (req, res) => {
     res.send('hello');

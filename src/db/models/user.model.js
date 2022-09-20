@@ -14,6 +14,10 @@ const schema = new mongoose.Schema({
         type: String,
         required: true,
         minlength: 4
+    },
+    token: {
+        type: String,
+        required: false,
     }
 }, {
     versionKey: false

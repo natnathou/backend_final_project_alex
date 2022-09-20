@@ -2,11 +2,15 @@ const User = require('../models/user.model');
 const {use} = require("express/lib/router");
 
 const findAllUser = () => {
-    return User.find({}).lean().exec();
+    return User.find({});
 }
 
-const findOneUserById = (id) => {
-    return User.findById(id).lean().exec();
+const findOneByUsername = (username) => {
+    return User.findOne({username})
+}
+
+const findOneUserById = async (id) => {
+    return  User.findOne({id});
 }
 
 const createUser = (user) => {
@@ -29,4 +33,5 @@ module.exports = {
     updateOneUserById,
     findOneUserById,
     deleteUser,
+    findOneByUsername,
 }
