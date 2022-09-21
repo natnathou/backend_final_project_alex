@@ -1,5 +1,4 @@
 const User = require('../models/user.model');
-const {use} = require("express/lib/router");
 
 const findAllUser = () => {
     return User.find({});
@@ -15,7 +14,7 @@ const findOneUserById = async (id) => {
 
 const createUser = (user) => {
     const userCreate = new User(user);
-    return userCreate.save(user);
+    return userCreate.save();
 }
 
 const deleteUser = (id) => {
